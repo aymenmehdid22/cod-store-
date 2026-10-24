@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer base {
+  /* Arabic script is cursive: letter-spacing and uppercase styling break letter joining. */
+  html[lang="ar"] * {
+    letter-spacing: normal !important;
+    text-transform: none !important;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-border bg-white;
+  }
+  .input {
+    @apply mt-1.5 w-full rounded-xl border border-border bg-white px-3.5 py-2.5 text-sm outline-none transition focus:border-foreground;
+  }
+  .label {
+    @apply block text-xs font-semibold uppercase tracking-wide text-[#333];
+  }
+  .btn-primary {
+    @apply rounded-xl bg-foreground px-6 py-3.5 text-sm font-bold tracking-wide text-white transition hover:bg-black active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60;
+  }
+}
